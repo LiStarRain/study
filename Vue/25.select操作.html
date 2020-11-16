@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <select v-model="field.cid" multiple size="3">
+      <option value="">==请选择===</option>
+      <option v-for="item of field.category" :key="item.cid" :value="item.cid">{{item.title}}</option>
+    </select>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        field: {
+          cid: [],
+          category: [{
+            cid: 1,
+            title: "news"
+          }, {
+            cid: 2,
+            title: "牛头人"
+          }, {
+            cid: 3,
+            title: "hahah"
+          }, {
+            cid: 4,
+            title: "后盾人"
+          }]
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

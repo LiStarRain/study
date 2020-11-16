@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1 v-bind:class="hd" :title="title">{{ title }}</h1>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        title: "操作元素属性",
+        hd: "active"
+      }
+    });
+  </script>
+</body>
+
+</html>

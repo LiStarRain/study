@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <script src="./vuex.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <lists></lists>
+    <footer-cart></footer-cart>
+  </div>
+
+  <script type="text/x-template" id="Lists">
+    <table border="1" width="90%" align="center">
+      <thead>
+        <tr>
+          <td>编号</td>
+          <td>名称</td>
+          <td>价格</td>
+          <td>数量</td>
+          <td>总计</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item of goods" :key="item.id">
+          <td>{{item.id}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.price}}</td>
+          <td><input type="number" v-model="item.num"></td>
+          <td>{{item.totalPrice}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan=5>总价：{{totalPrice}}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </script>
+
+  <script type="text/x-template" id="footerCart">
+    <div>总计：{{totalPrice}}</div>
+  </script>
+
+  <script>
+    const store = new Vuex.Store({
+      state: {
+        goods: [{
+            id: 1,
+            title: "iphone7",
+            price: 8000,
+            num: 3
+          },
+          {
+            id: 2,
+            title: "thinkpadx1",
+            price: 10000,
+            num: 1
+          }
+        ]
+      },
+      getters: {
+        // 获取商品总价
+        totalPrice(state) {
+          return state.goods.reduce((total, cur) => {
+            return total += cur.num * cur.price;
+          }, 0);
+        },
+        goods(state) {
+          return state.goods.map(v => {
+            v.totalPrice = v.num * v.price;
+            return v;
+          });
+        }
+      }
+    });
+
+    const Lists = {
+      template: "#Lists",
+      computed: {
+        totalPrice() {
+          return this.$store.getters.totalPrice;
+        },
+        goods() {
+          return this.$store.getters.goods;
+        }
+      },
+    };
+
+    const footerCart = {
+      template: "#footerCart",
+      computed: {
+        totalPrice() {
+          return this.$store.getters.totalPrice;
+        }
+      },
+    };
+
+    const app = new Vue({
+      el: "#app",
+      components: {
+        Lists,
+        footerCart
+      },
+      store
+    });
+  </script>
+</body>
+
+</html>

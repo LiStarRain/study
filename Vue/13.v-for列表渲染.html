@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <table>
+      <thead>
+        <tr>
+          <th>索引</th>
+          <th>编号</th>
+          <th>标题</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item,key) in news">
+          <td>{{key}}</td>
+          <td>{{item.id}}</td>
+          <td>{{item.title}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        news: [{
+            id: 1,
+            title: "houdunren.com"
+          },
+          {
+            id: 2,
+            title: "后盾人"
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+
+</html>

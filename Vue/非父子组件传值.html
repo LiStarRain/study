@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<child content="hello"></child>
+			<child content="word"></child>
+		</div>
+		
+		<script type="text/javascript">
+			// 通过往构造函数上挂载属性实现非父子间的传值
+			Vue.prototype.bus = new Vue();
+			
+			Vue.component("child", {
+				template: "<div @click='click'>{{text}}</div>",
+				props: ["content"],
+				data() {
+					return {
+						text: this.content
+					}
+				},
+				methods: {
+					click() {
+						// 向外触发一个事件
+						this.bus.$emit("clickChild",this.text);
+					}
+				},
+				// 从组件挂载完成时就开始监听事件
+				mounted() {
+					// 绑定作用域
+					const that = this;
+					// 监听外面触发的事件
+					this.bus.$on("clickChild",function(data) {
+						// this == that.bus
+						console.log(data);
+						that.text=data;
+					});
+				}
+			});
+			const app = new Vue({
+				el: "#app"
+			});
+		</script>
+	</body>
+</html>

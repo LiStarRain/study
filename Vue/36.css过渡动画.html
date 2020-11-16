@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <style>
+    .hd-enter,
+    .hd-leave-to {
+      opacity: 0;
+    }
+
+    .hd-enter-to {
+      font-size: 100px;
+    }
+
+    .hd-enter-active,
+    .hd-leave-active {
+      color: red;
+      transition: all 1s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="type = !type">切换</button>
+    <transition name="hd">
+      <h1 v-if="type">后盾人</h1>
+    </transition>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        type: true
+      }
+    });
+  </script>
+</body>
+
+</html>

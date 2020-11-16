@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+
+  <script type="text/x-template" id="home">
+    <div>
+      <li v-for="v of news" :key="v.id">
+        <router-link :to="{name: 'content', params: {id: v.id}}">{{v.title}}</router-link>
+      </li>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="content">
+    <div>
+      <h1>{{field.title}}</h1>
+      <p>{{field.content}}</p>
+      <router-link to="/">home</router-link>
+    </div>
+  </script>
+
+  <script>
+    // 这里是获取的公共数据(vuex)
+    const news = [{
+        id: 1,
+        title: "hdphp",
+        content: "这是内容"
+      },
+      {
+        id: 2,
+        title: "内容管理系统",
+        content: "这也是内容哈哈哈"
+      }
+    ];
+
+    const home = {
+      template: "#home",
+      data() {
+        return {
+          news
+        };
+      },
+    };
+
+    const content = {
+      template: "#content",
+      mounted() {
+        this.field = news[this.$route.params.id - 1];
+      },
+      data() {
+        return {
+          field: {}
+        }
+      },
+    };
+
+    const routes = [{
+      path: "/",
+      component: home
+    }, {
+      // 设置默认参数
+      path: '/content/:id',
+      component: content,
+      name: "content"
+    }];
+
+    // 要把组件交给路由器控制
+    let router = new VueRouter({
+      routes
+    });
+
+    // 将路由器置入根组件中
+    const app = new Vue({
+      el: "#app",
+      router
+    });
+  </script>
+</body>
+
+</html>

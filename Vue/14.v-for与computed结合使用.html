@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item of stutus">
+        {{item.name}} - {{item.sex}}
+      </li>
+    </ul>
+    {{type}}
+    <input type="radio" v-model="type" value="male" name="filter">男孩
+    <input type="radio" v-model="type" value="female" name="filter">女孩
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      computed: {
+        // 使用计算属性来进行筛选
+        stutus() {
+          if (this.type === "all") {
+            return this.users;
+          } else {
+            // 箭头函数没有this,this为创建时的this,会找父级的this
+            return this.users.filter(item => item.sex === this.type);
+          }
+        }
+      },
+      data: {
+        type: "all",
+        users: [{
+            name: "小明",
+            sex: "male"
+          },
+          {
+            name: "小红",
+            sex: "female"
+          },
+          {
+            name: "小刚",
+            sex: "male"
+          },
+          {
+            name: "小丽",
+            sex: "female"
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+
+</html>

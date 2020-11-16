@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+
+  <script type="text/x-template" id="home">
+    <div>
+      <li v-for="v of news" :key="v.id">
+        <a @click.prevent="go(v.id)">{{v.title}}</a>
+      </li>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="content">
+    <div>
+      <h1>{{field.title}}</h1>
+      <p>{{field.content}}</p>
+      <router-link to="/">home</router-link>
+      <a @click.prevent="back">back</a>
+    </div>
+  </script>
+
+  <script>
+    // 这里是获取的公共数据(vuex)
+    const news = [{
+        id: 1,
+        title: "hdphp",
+        content: "这是内容"
+      },
+      {
+        id: 2,
+        title: "内容管理系统",
+        content: "这也是内容哈哈哈"
+      }
+    ];
+
+    const home = {
+      template: "#home",
+      data() {
+        return {
+          news
+        };
+      },
+      methods: {
+        go(id) {
+          // 业务逻辑
+          this.$router.push({
+            name: "content",
+            params: {
+              id
+            }
+          });
+          // 直接替换，不生成历史记录
+          // this.$router.replace("/content/" + id);
+        }
+      },
+    };
+
+    const content = {
+      template: "#content",
+      // 注意mounted只执行一次
+      mounted() {
+        this.field = news[this.$route.params.id - 1];
+      },
+      // 监听路由的变化
+      watch: {
+        '$route'(to, from) {
+          this.field = news[this.$route.params.id - 1];
+        }
+      },
+      data() {
+        return {
+          field: {}
+        }
+      },
+      methods: {
+        back() {
+          // 跳转历史记录的第几个
+          this.$router.go(-1);
+        }
+      },
+    };
+
+    const routes = [{
+        path: "/",
+        component: home
+      },
+      {
+        path: '/content/:id',
+        component: content,
+        name: "content"
+      }
+    ];
+
+    // 要把组件交给路由器控制
+    let router = new VueRouter({
+      routes
+    });
+
+    // 将路由器置入根组件中
+    const app = new Vue({
+      el: "#app",
+      router
+    });
+  </script>
+</body>
+
+</html>

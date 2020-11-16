@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <script src="./node_modules/_axios@0.21.0@axios/dist/axios.js"></script>
+  <script src="./node_modules/_lodash@4.17.20@lodash/lodash.js"></script>
+  <style>
+    .color {
+      color: red;
+    }
+
+    .font {
+      font-size: 100px;
+    }
+
+    .green {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 原始的类还是会保留的 -->
+    <h1 class="green" :class="hd">class</h1>
+    <hr>
+    <h2 :class="[success,'font']">houdunren.com</h2>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        hd: {
+          color: true,
+          font: true
+        },
+        success: "color"
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <hd-slide></hd-slide>
+    <hd-news></hd-news>
+  </div>
+
+  <script>
+    // 定义全局组件
+    Vue.component("hdSlide", {
+      template: `<h1>{{title}}</h1>`,
+      data() {
+        return {
+          title: "这是标题"
+        }
+      },
+    });
+
+    const hdNews = {
+      template: `<h2>你好牛头人</h2>`
+    }
+
+    const app = new Vue({
+      el: "#app",
+      components: {
+        hdNews
+      }
+    });
+  </script>
+</body>
+
+</html>

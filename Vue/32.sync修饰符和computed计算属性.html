@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 同步属性子组件更新的时候，父组件值也会发生更新 -->
+    <hd-news :lists.sync="goods"></hd-news>
+    <h3>总计：{{totalPrice}}元</h3>
+  </div>
+
+  <script type="text/x-template" id="goods">
+    <table border="1" width="90%" align="center">
+      <thead>
+        <tr>
+          <th>商品名称</th>
+          <th>商品价格</th>
+          <th>商品数量</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="v of lists">
+          <td>{{v.title}}</td>
+          <td>{{v.price}}</td>
+          <td><input type="number" v-model="v.num" min=0></td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+
+  <script>
+    const hdNews = {
+      // 把父组件中的相应属性拿到子组件中
+      // 这里传来了个引用类型的变量
+      props: ["lists"],
+      template: "#goods"
+    };
+
+    const app = new Vue({
+      el: "#app",
+      components: {
+        hdNews
+      },
+      data: {
+        goods: [{
+            title: "iphone7",
+            price: 8000,
+            num: 1
+          },
+          {
+            title: "ipad",
+            price: 4000,
+            num: 1
+          }
+        ]
+      },
+      computed: {
+        totalPrice() {
+          return this.goods.reduce((total, cur) => {
+            return total += cur.price * cur.num;
+          }, 0);
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

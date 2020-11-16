@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <li v-for="(item,index) of comments" :key="item.id">
+      {{item.id}}---{{item.content}} <button @click="del(index)">删除</button>
+    </li>
+    <textarea v-model="current_content" cols="30" rows="10"></textarea>
+    <br>
+    <button @click="push('end')">发表到后面</button>
+    <button @click="push('pre')">发表到前面</button>
+    <br>
+    <button @click="remove('end')">删除最后一条</button>
+    <button @click="remove('pre')">删除第一条</button>
+    <br>
+    <button @click="sort('asc')">id升序</button>
+    <button @click="sort('desc')">id降序</button>
+    <br>
+    <button @click="reverse">反转</button>
+    <br>
+    <input type="text" @keyup.enter="search" v-model="search_content">
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        current_content: '',
+        // 搜索内容
+        search_content: '',
+        comments: [{
+            id: 3,
+            content: "后盾人"
+          },
+          {
+            id: 1,
+            content: "老师好"
+          },
+          {
+            id: 2,
+            content: "哈哈哈"
+          }
+        ]
+      },
+      methods: {
+        push(type) {
+          let content = {
+            id: this.comments.length + 1,
+            content: this.current_content
+          };
+          switch (type) {
+            case 'end':
+              this.comments.push(content);
+              break;
+            case 'pre':
+              this.comments.unshift(content);
+              break;
+          }
+        },
+        remove(type = 'end') {
+          let deleteItem;
+          switch (type) {
+            case 'end':
+              deleteItem = this.comments.pop();
+              break;
+            case 'pre':
+              deleteItem = this.comments.shift();
+              break;
+          }
+          return deleteItem;
+        },
+        del(index) {
+          return this.comments.splice(index, 1);
+        },
+        sort(type) {
+          switch (type) {
+            case 'asc':
+              // 返回负数不作为，返回正数换一换
+              this.comments.sort((pre, cur) => pre.id - cur.id);
+              break;
+            case 'desc':
+              this.comments.sort((prev, cur) => cur.id - prev.id);
+              break;
+          }
+        },
+        reverse() {
+          this.comments.reverse();
+        },
+        search() {
+          const reg = new RegExp(this.search_content, "i");
+          this.comments = this.copy.filter(item => {
+            return reg.test(item.content);
+          });
+        },
+        arrayCopy(target) {
+          const result = target instanceof Array ? [] : {};
+          for (const [key, value] of Object.entries(target)) {
+            result[key] = typeof value === 'object' ? this.arrayCopy(value) : value;
+          }
+          this.copy = result;
+          return result;
+        }
+      },
+      mounted() {
+        this.arrayCopy(this.comments);
+      },
+    });
+  </script>
+</body>
+
+</html>

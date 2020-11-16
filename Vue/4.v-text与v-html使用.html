@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ title }}</h1>
+    <!-- 绑定为文本字符串 -->
+    <h3 v-text="title"></h3>
+    <!-- 将字符串作为html元素解析 -->
+    <h4 v-html="rawHtml"></h4>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        title: "操作元素属性",
+        rawHtml: "<p style='color: red;'>将字符串作为html解析</p>"
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <router-link to="/content">content</router-link>
+    <router-view></router-view>
+  </div>
+
+  <script type="text/x-template" id="content">
+    <div>
+      id: {{this.id}}
+      <br>
+      <button @click="show">检测参数</button>
+    </div>
+  </script>
+
+  <script>
+    const content = {
+      template: "#content",
+      data() {
+        return {
+          id: 1
+        }
+      },
+      // 判断有没有路由参数
+      mounted() {
+        this.id = this.$route.params.id;
+        if (!this.id) {
+          this.id = 1;
+        }
+      },
+      methods: {
+        show() {
+          console.log(this.$route.params);
+        }
+      }
+    }
+
+    const routes = [{
+      // 设置默认参数
+      path: '/content/:id?',
+      component: content
+    }];
+
+    // 要把组件交给路由器控制
+    let router = new VueRouter({
+      routes
+    });
+
+    // 将路由器置入根组件中
+    const app = new Vue({
+      el: "#app",
+      router
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{title}}</h1>
+    <input type="text" v-model.trim.lazy="title">
+    <input type="number" v-model.number="field.click">
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        title: "",
+        field: {
+          click: 999,
+        }
+      },
+      watch: {
+        "field.click"(newValue, oldValue) {
+          console.log(typeof newValue);
+        },
+        title(newValue, oldValue) {
+          console.log(newValue.length);
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>
