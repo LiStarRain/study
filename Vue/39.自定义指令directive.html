@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <span v-star="color">后盾人</span>
+    <input type="text" v-model="color" v-focus>
+    <!-- <input type="text" v-model="title" v-lsr.focus="'red'"> -->
+  </div>
+
+  <script>
+    // 全局指令
+    Vue.directive("lsr", {
+      update(el, bind) {
+        console.log(bind);
+      },
+      bind(el, bind) {
+        console.log(bind);
+      }
+    });
+
+    // 局部指令
+    const star = function (el, bind) {
+      console.log(bind);
+      const color = bind.value ? bind.value : "red";
+      el.style.cssText = `color: ${color};`;
+    }
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        title: "houdunren.com",
+        color: ""
+      },
+      directives: {
+        star,
+        focus: {
+          // 当元素被插入到父节点中时调用
+          inserted(el, bind) {
+            el.focus();
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

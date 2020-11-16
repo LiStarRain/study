@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <hd-news></hd-news>
+  </div>
+
+  <script type="text/x-template" id="hdNews">
+    <div>
+      <li v-for="(item,index) of news" :key="item.name">
+        {{item.name}}----{{item.age}}
+        <button @click="del(index)">删除</button>
+      </li>
+    </div>
+  </script>
+  <script>
+    const hdNews = {
+      template: `#hdNews`,
+      data() {
+        return {
+          news: [{
+              name: "哇哈哈",
+              age: 12
+            },
+            {
+              name: "爽歪歪",
+              age: 22
+            },
+            {
+              name: "王老吉",
+              age: 90
+            }
+          ]
+        }
+      },
+      methods: {
+        del(index) {
+          const delItem = this.news.splice(index, 1);
+          return delItem;
+        }
+      },
+    };
+
+    const app = new Vue({
+      el: "#app",
+      components: {
+        hdNews
+      }
+    });
+  </script>
+</body>
+
+</html>

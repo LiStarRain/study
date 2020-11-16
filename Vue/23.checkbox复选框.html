@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="field.title">
+    <input type="checkbox" v-model="field.draft">草稿 {{field.draft}}
+    <input type="checkbox" v-model="field.hot" value="热门" name="hot">热门
+    <input type="checkbox" v-model="field.hot" value="经典" name="hot">经典 {{field.hot}}
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        field: {
+          title: "牛头人，人人ntr",
+          click: 999,
+          url: "wasser.net.cn",
+          draft: true,
+          hot: ["热门"]
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <hd-news :lists="goods" @sum="total"></hd-news>
+    <h3>总计：{{totalPrice}}元</h3>
+  </div>
+
+  <script type="text/x-template" id="goods">
+    <table border="1" width="90%" align="center">
+      <thead>
+        <tr>
+          <th>商品名称</th>
+          <th>商品价格</th>
+          <th>商品数量</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="v of lists">
+          <td>{{v.title}}</td>
+          <td>{{v.price}}</td>
+          <td><input type="number" v-model="v.num" @input="sum" min=0></td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+
+  <script>
+    const hdNews = {
+      // 把父组件中的相应属性拿到子组件中
+      // 这里传来了个引用类型的变量
+      props: ["lists"],
+      template: "#goods",
+      methods: {
+        sum() {
+          // 触发一个父组件的自定义事件
+          this.$emit("sum");
+        }
+      },
+    };
+
+    const app = new Vue({
+      el: "#app",
+      components: {
+        hdNews
+      },
+      data: {
+        goods: [{
+            title: "iphone7",
+            price: 8000,
+            num: 1
+          },
+          {
+            title: "ipad",
+            price: 4000,
+            num: 1
+          }
+        ],
+        totalPrice: 0
+      },
+      methods: {
+        total() {
+          this.totalPrice = this.goods.reduce((total, cur) => {
+            return total += cur.price * cur.num;
+          }, 0);
+        }
+      },
+      mounted() {
+        this.total();
+      },
+    });
+  </script>
+</body>
+
+</html>

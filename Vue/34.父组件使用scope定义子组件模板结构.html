@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <hd-list :data="news">
+      <!-- 使用template不让他找父模板区的变量 将作用域抛给父级 -->
+      <template v-slot:default="v">
+        {{v.field.title}}
+      </template>
+    </hd-list>
+  </div>
+
+  <script type="text/x-template" id="hdList">
+    <ul>
+      <slot v-for="v of data" :field="v"></slot>
+    </ul>
+  </script>
+
+  <script>
+    const hdList = {
+      template: "#hdList",
+      props: ["data"]
+    };
+
+    const app = new Vue({
+      el: "#app",
+      components: {
+        hdList
+      },
+      data: {
+        news: [{
+            title: "hdcms"
+          },
+          {
+            title: "牛头人"
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 当发生在自己元素上时才会触发，冒泡来的事件不会触发 capture修饰符为捕获模式触发 -->
+    <div @click.self.capture="parent" :style="{border: '1px solid red'}">
+      <!-- 阻止冒泡 -->
+      <a href="http://wassrer.net.cn" @click.prevent.stop="links">我的网站</a>
+    </div>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+
+      },
+      methods: {
+        parent() {
+          console.log("I am parent");
+        },
+        links() {
+          console.log("wasser.net.cn,child");
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

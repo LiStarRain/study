@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1 :style="{color: 'red', fontSize: size + 'px'}">人上人</h1>
+    <input type="number" v-model="size">
+    <h2 :style="myStyle">hahah</h2>
+    <h3 :style="[hdcms, myStyle]">数组方式</h3>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        size: 50,
+        myStyle: {
+          color: "blue",
+        },
+        hdcms: {
+          color: "purple",
+          border: "1px solid red"
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

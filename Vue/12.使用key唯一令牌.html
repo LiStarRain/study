@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <form>
+      <label v-if="regType==='mail'" key="mail-register">
+        邮箱：<input type="email" key="phone-register">
+      </label>
+      <!-- 绑定key阻止元素复用 -->
+      <label v-else>
+        手机：<input type="email">
+      </label>
+      <br>
+      <label>
+        <input type="radio" value="mail" v-model="regType">邮箱注册
+      </label>
+      <label>
+        <input type="radio" value="phone" v-model="regType">手机注册
+      </label>
+    </form>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        regType: "mail"
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <style>
+    .hd1 {
+      color: red;
+    }
+
+    .hd2 {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1 :class="'hd' + num">你好{{num}}</h1>
+    <input type="number" v-model="num">
+    <br>
+    <input type="radio" v-model="num" value="1">红
+    <input type="radio" v-model="num" value="2">蓝
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        num: 1
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css" rel="stylesheet">
+  <script src="./vue.js"></script>
+  <style>
+    .hd-enter-active {
+      animation: show-in 1s;
+      transition: opacity 1s;
+    }
+
+    .hd-leave-active {
+      animation: hide-out 1s;
+      transition: opacity 1s;
+    }
+
+    .hd-leave-to,
+    .hd-enter {
+      opacity: 0;
+    }
+
+    @keyframes show-in {
+      from {
+        transform: translateX(100px);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes hide-out {
+      0% {
+        tramsform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(100px, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="type = !type">切换</button>
+    <transition name="hd">
+      <h1 v-if="type">后盾人</h1>
+    </transition>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        type: true
+      }
+    });
+  </script>
+</body>
+
+</html>

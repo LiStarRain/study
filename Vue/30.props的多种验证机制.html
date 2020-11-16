@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <hd-news :hd="test"></hd-news>
+  </div>
+
+  <script>
+    const hdNews = {
+      // 把父组件中的相应属性拿到子组件中
+      props: {
+        hd: {
+          // 数据类型
+          type: [String, Number],
+          // 设置默认值
+          default: "这是一个默认值",
+          // 验证规则
+          validator(value) {
+            console.log(value);
+            // 返回true验证通过，返回false验证失败
+            return true;
+          },
+          // 这个参数必须传，不传就会报错
+          required: true
+        }
+      },
+      template: "<h1>{{hd}}</h1>"
+    };
+
+    const app = new Vue({
+      el: "#app",
+      components: {
+        hdNews
+      },
+      data: {
+        test: "这是父组件传到子组件的值"
+      }
+    });
+  </script>
+</body>
+
+</html>

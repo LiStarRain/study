@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <style>
+    .lsr-enter,
+    .lsr-leave-to {
+      transform: translateX(-20vw);
+    }
+
+    /* 整个过渡过程中一直存在的类，若在里面写变化的属性，会导致覆盖属性，产生不了动画效果 */
+    .lsr-enter-active,
+    .lsr-leave-active {
+      transition: 1s;
+    }
+
+    .lsr-enter-to,
+    .lsr-leave {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <transition mode="out-in" name="lsr">
+      <router-view></router-view>
+    </transition>
+  </div>
+
+  <script type="text/x-template" id="home">
+    <div>
+      <li v-for="v of news" :key="v.id">
+        <router-link :to="{name: 'content', params: {id: v.id}}">{{v.title}}</router-link>
+      </li>
+      <router-link to="/about">关于我们</router-link>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="content">
+    <div>
+      <h1>{{field.title}}</h1>
+      <p>{{field.content}}</p>
+      <router-link to="/">home</router-link>
+    </div>
+  </script>
+
+  <script>
+    // 这里是获取的公共数据(vuex)
+    const news = [{
+        id: 1,
+        title: "hdphp",
+        content: "这是内容"
+      },
+      {
+        id: 2,
+        title: "内容管理系统",
+        content: "这也是内容哈哈哈"
+      }
+    ];
+
+    const NotFound = {
+      template: "<h1>找不到，滚</h1>"
+    };
+
+    const home = {
+      template: "#home",
+      data() {
+        return {
+          news
+        };
+      },
+    };
+
+    const content = {
+      template: "#content",
+      mounted() {
+        this.field = news[this.$route.params.id - 1];
+      },
+      data() {
+        return {
+          field: {}
+        }
+      },
+    };
+
+    const routes = [{
+        path: "/",
+        component: home
+      }, {
+        path: '/content/:id',
+        component: content,
+        name: "content"
+      },
+      {
+        path: "/about",
+        redirect: {
+          name: "content",
+          params: {
+            id: 1
+          }
+        }
+      },
+      {
+        path: "*",
+        component: NotFound
+      }
+    ];
+
+    // 要把组件交给路由器控制
+    let router = new VueRouter({
+      routes
+    });
+
+    // 将路由器置入根组件中
+    const app = new Vue({
+      el: "#app",
+      router
+    });
+  </script>
+</body>
+
+</html>
