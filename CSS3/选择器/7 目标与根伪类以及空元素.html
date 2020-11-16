@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 伪类：用来描述元素的一种特殊状态 */
+    /* 选择作为根元素的元素 */
+    :root {
+      color: purple;
+    }
+
+    div {
+      height: 900px;
+      border: 1px solid #eee;
+    }
+
+    /* 做为跳转目标的元素 */
+    div:target {
+      background-color: blue;
+    }
+
+    /* 选择没有内容的元素 */
+    li:empty {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>哈哈哈</li>
+    <li></li>
+  </ul>
+  <!-- 锚点跳转 -->
+  <a href="#hdcms">小网站</a>
+  <div></div>
+  <div id="hdcms">
+    hdcms内容管理系统
+  </div>
+</body>
+
+</html>

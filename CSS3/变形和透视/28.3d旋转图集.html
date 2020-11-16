@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: #34495e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      display: flex;
+      width: 200px;
+      height: 200px;
+      position: relative;
+
+      transform-style: preserve-3d;
+      transform: perspective(900px);
+      transform-origin: center center -200px;
+      transition: 1s;
+    }
+
+    article {
+      border: 1px solid red;
+      height: 400px;
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    article:hover main {
+      transform: perspective(900px) rotateY(180deg);
+    }
+
+    div {
+      overflow: hidden;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+    }
+
+    div img {
+      width: 100%;
+      height: 100%;
+    }
+
+    div:nth-child(1) {
+      transform-origin: center center -200px;
+      transform: rotateY(90deg);
+    }
+
+    div:nth-child(2) {
+      transform-origin: center center -200px;
+      transform: rotateY(180deg);
+    }
+
+    div:nth-child(3) {
+      transform-origin: center center -200px;
+      transform: rotateY(270deg);
+    }
+
+    div:nth-child(4) {
+      transform-origin: center center -200px;
+      transform: rotateY(360deg);
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <main>
+      <div><img src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2680617861,2259765610&fm=111&gp=0.jpg"
+          alt=""></div>
+      <div><img src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1741476901,4013212021&fm=111&gp=0.jpg"
+          alt=""></div>
+      <div><img src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=259981538,2780056385&fm=111&gp=0.jpg"
+          alt=""></div>
+      <div><img src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3755724818,493016084&fm=111&gp=0.jpg"
+          alt=""></div>
+    </main>
+  </article>
+</body>
+
+</html>

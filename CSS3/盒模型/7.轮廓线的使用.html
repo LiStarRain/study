@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    article {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      margin: 0 auto;
+      /* 轮廓线不会参与盒子模型的计算，不会影响元素的页面布局，它不占用空间位 */
+      /* 轮廓线风格 */
+      outline-style: double;
+      /* 轮廓线的宽度 */
+      outline-width: 2px;
+      /* 轮廓线的颜色 */
+      outline-color: blueviolet;
+    }
+
+    input {
+      /* 去掉浏览器默认设置的轮廓线 */
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" name="title">
+  <article>
+    <div>houdunren.com</div>
+  </article>
+</body>
+
+</html>

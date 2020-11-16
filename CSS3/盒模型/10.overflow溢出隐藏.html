@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      border: 1px solid #000;
+      width: 300px;
+      height: 100px;
+      /* 让超出部分产生滚动条 */
+      /* overflow: scroll; */
+      /* 自动，如果内容装不下，再显示滚动条 */
+      /* overflow: auto; */
+      /* 超出部分隐藏 */
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quis doloribus hic repellat nemo consequatur sapiente
+    reprehenderit? Non voluptate quas architecto totam placeat mollitia rerum, unde, sint eum molestias ab.
+  </div>
+</body>
+
+</html>

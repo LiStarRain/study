@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      color: red;
+    }
+
+    /* class选择器权重为10 */
+    .houdunren {
+      font-size: 100px;
+      color: green;
+    }
+
+    #hdcms {
+      color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    权重位
+    !important: 10000 最高
+    内联: 1000
+    id: 0100
+    class: 0010
+    element: 0001
+  -->
+  <div id="hdcms" class="houdunren">hdcms</div>
+</body>
+
+</html>

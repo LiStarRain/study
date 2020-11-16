@@ -1,0 +1,109 @@
+header {
+  border-bottom: 5px solid #e056fd;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+
+  .navbar {
+    display: flex;
+    // 尽量不要设置高度，用padding来顶
+    padding: 1rem 0;
+    align-items: center;
+  }
+
+  .logo {
+    color: #badc58;
+    font-weight: bold;
+    margin-right: 20px;
+    // 根元素大小的n倍
+    font-size: 1.3rem;
+
+    &+label {
+      display: none;
+
+      &+input {
+        display: none;
+      }
+    }
+  }
+
+  .collapse {
+    display: flex;
+    flex-grow: 1;
+
+    .links {
+      display: flex;
+      margin-right: auto;
+
+      li {
+        margin: 0 10px;
+
+        a {
+          color: #777;
+
+          &:hover {
+            color: #333;
+            font-weight: bold;
+          }
+        }
+      }
+
+    }
+
+    .form {
+      a {
+        border: 1px solid #e056fd;
+        border-radius: .3rem;
+        padding: .3rem 1rem;
+        color: #e056fd;
+
+        &.form-bg {
+          background-color: #e056fd;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:960px) {
+  header {
+
+    // 注意优先级，可以把他搞高一点
+    .navbar {
+      flex-flow: row wrap;
+
+      .logo {
+        margin-right: auto;
+
+        &+label {
+          display: block;
+          border: 1px solid #ddd;
+          padding: 0.5rem 1rem;
+          color: #333;
+          cursor: pointer;
+
+          &+input:checked {
+            &+.collapse {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .collapse {
+        display: none;
+        // 让他换行
+        flex-direction: column;
+        width: 100%;
+
+        .links {
+          flex-direction: column;
+          margin-bottom: 1.5rem;
+
+          li {
+            margin: .5rem 0;
+          }
+        }
+      }
+    }
+  }
+}

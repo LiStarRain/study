@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    main {
+      width: 400px;
+      height: 400px;
+      margin: 20px auto;
+      border: 1px solid silver;
+      position: relative;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -100px;
+      margin-top: -100px;
+    }
+
+    div:first-child {
+      background-color: #f1c40f;
+    }
+
+    div:nth-child(2) {
+      background-color: #3498db;
+      transition: 0.5s;
+    }
+
+    main:hover div:nth-child(2) {
+      /* 控制元素在X轴上移动 自己宽度 的100% */
+      transform: translateX(100%);
+      /* 在Y轴移动 */
+      transform: translateY(100%);
+      /* 同时设置多个值使其移动，一条指令出错废除整条指令 */
+      transform: translateX(100%) translateY(100%);
+      /* X Y同时控制 */
+      transform: translate(-100%, 100%);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div></div>
+    <div></div>
+  </main>
+</body>
+
+</html>

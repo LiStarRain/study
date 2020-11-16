@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: #2ecc71;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    main a {
+      color: #fff;
+      font-size: 1.5em;
+      text-decoration: none;
+      border: 5px solid orange;
+      flex: 1;
+      display: flex;
+      height: 55px;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      transform: skew(45deg);
+      height: 100%;
+      background-color: #3498db;
+      z-index: -1;
+
+      transition: 0.5s;
+    }
+
+    .btn:hover::after {
+      width: 200%;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <a href="javascript:;" class="btn">
+      houdunren
+    </a>
+  </main>
+</body>
+
+</html>

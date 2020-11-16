@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    main {
+      border: 1px solid #000;
+      /* 清除浮动，设置完后形成BFC，使得他内部的浮动元素也参与计算 */
+      overflow: hidden;
+      min-width: 300px;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      box-sizing: border-box;
+    }
+
+    div:nth-of-type(1) {
+      border: 1px solid red;
+      /* 浮动脱离文档流，向左浮动到父元素的content-box(参照父元素向左浮动) */
+      float: left;
+      width: 100%;
+    }
+
+    div:nth-of-type(2) {
+      background-color: blue;
+      /* 设置浮动后会形成BFC，BFC元素之间不会重叠 */
+      /* 这里相当于和前一个div在一条战线 */
+      float: left;
+      /* 向上一行浮动，左移父元素宽度的百分比 */
+      margin-left: -100%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 文档流，浏览器解析文档的顺序块级元素从上到下，内联元素从左向右 -->
+  <main>
+    <div></div>
+    <div></div>
+    <div></div>
+  </main>
+</body>
+
+</html>

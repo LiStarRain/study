@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    article {
+      border: 1px solid purple;
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    article div {
+      background-color: blueviolet;
+      box-sizing: border-box;
+      padding: 5px;
+      background-clip: content-box;
+      flex: 1;
+      color: white;
+      font-size: 55px;
+    }
+
+    div:nth-child(1) {
+      /* width: 100%; */
+      /* 从文档流中移除，弹性布局对他没影响了 */
+      /* position: absolute; */
+
+      /* 在文档流中，弹性布局对他有影响 */
+      position: relative;
+      background-color: red;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </article>
+</body>
+
+</html>

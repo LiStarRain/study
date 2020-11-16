@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    article {
+      width: 400px;
+      height: 80px;
+      /* 声明栅格系统的容器 */
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+      border: 1px solid #000;
+
+      /* 组合定义对齐方式 对栅格定义 交叉轴 主轴 */
+      /* place-content: center space-around; */
+      /* 组合对元素定义 */
+      place-items: center end;
+    }
+
+    div {
+      background-color: blueviolet;
+      font-size: 24px;
+      color: white;
+      background-clip: content-box;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    div:nth-child(1) {
+      place-self: start center;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </article>
+</body>
+
+</html>

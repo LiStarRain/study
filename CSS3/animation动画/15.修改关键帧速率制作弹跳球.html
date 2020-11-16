@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template: 1fr / repeat(5, 1fr);
+      background-color: #2c3e50;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      grid-column: 3 / 4;
+      border-radius: 50%;
+      background-color: #e74c3c;
+      justify-self: center;
+
+      animation-name: move;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateY(0vh);
+        transition-timing-function: ease-in;
+      }
+
+      30% {
+        transform: translateY(10vh);
+        transition-timing-function: ease-in;
+      }
+
+      60% {
+        transform: translateY(40vh);
+        transition-timing-function: ease-in;
+      }
+
+      80% {
+        transform: translateY(60vh);
+        transition-timing-function: ease-in;
+      }
+
+      90% {
+        transform: translateY(75vh);
+        transition-timing-function: ease-in;
+      }
+
+      15%,
+      45%,
+      75%,
+      85%,
+      100% {
+        transition-timing-function: ease-out;
+        transform: translateY(85vh);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

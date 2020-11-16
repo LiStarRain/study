@@ -1,0 +1,5 @@
+/* 使用@import统一导入样式 */
+@import url("2.common.css") all;
+@import url("2.screen.css") screen;
+@import url("2.print.css") print;
+@import url("4.navbar.css");

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 伪元素 */
+    /* 首字母 */
+    /* p::first-letter {
+      color: red;
+    } */
+
+    /* 行 */
+    /* p::first-line {
+      background-color: yellow;
+    } */
+
+    /* 在元素前添加伪元素 */
+    /* p::before {
+      content: 'ccc';
+      color: red;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+    } */
+
+    /* p::after {
+      content: "aaa";
+      color: "blue";
+      position: absolute;
+      top: 30px;
+      left: 80px;
+    } */
+
+    div {
+      border: 1px solid #ddd;
+      width: 130px;
+    }
+
+    div>input[type="text"] {
+      border: none;
+      outline: none;
+      width: 100px;
+    }
+
+    div>input[type="text"]+span::after {
+      content: "\293D";
+      cursor: pointer;
+      display: inline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At iure quam perferendis, modi pariatur nulla numquam
+    rerum recusandae consequatur incidunt amet sint nostrum eos iusto possimus esse repellendus maiores. Assumenda.</p> -->
+  <div>
+    <input type="text">
+    <span></span>
+  </div>
+</body>
+
+</html>

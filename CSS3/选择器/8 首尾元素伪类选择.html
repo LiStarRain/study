@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 作为第一个后代元素的h1元素 */
+    /* article h1:first-child {
+      color: red;
+    } */
+
+    /* 作为第一个后代h1元素中的第一个h1元素 */
+    /* article h1:first-of-type {
+      color: purple;
+    } */
+
+    /* article子元素中的最后一个元素 */
+    article :last-child {
+      color: yellow;
+    }
+
+    /* article子元素中所有h1元素中的第一个h1元素 */
+    article h1:last-of-type {
+      color: rebeccapurple;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article>
+      <h1>后盾人</h1>
+      <aside>
+        <h2>papi</h2>
+        <h1>houdunren.com</h1>
+      </aside>
+      <h2>hdcms.com</h2>
+    </article>
+  </main>
+</body>
+
+</html>

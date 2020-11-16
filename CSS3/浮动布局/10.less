@@ -1,0 +1,20 @@
+p {
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow: hidden;
+
+  span.shape {
+    width: 100px;
+    height: 100px;
+    float: left;
+    padding: 30px;
+    border: 1px;
+    border: 20px solid red;
+
+    // 让文字围绕边框
+    // shape-outside: border-box;
+    // shape-outside: padding-box;
+    // shape-outside: content-box;
+    shape-outside: margin-box;
+  }
+}

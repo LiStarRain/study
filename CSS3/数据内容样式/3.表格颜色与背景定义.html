@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      background-color: red;
+      background-image: url("https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2438388894,880471568&fm=111&gp=0.jpg");
+      background-size: 100% 100%;
+    }
+
+    /* table thead {
+      background-color: purple;
+      color: #fff;
+    }
+
+    table tbody tr:first-child {
+      background-color: yellow;
+    } */
+
+    table tbody tr:nth-child(odd) {
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <table border="1">
+    <caption>课程介绍</caption>
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>标题</th>
+        <th>网址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>在线社区</td>
+        <td>houdunren.com</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>开源系统</td>
+        <td>hdcms.cn</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>3</td>
+        <td>开发实战</td>
+        <td>houdunwang.com</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2c3e50;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: #9b59b6;
+      transition: 1s;
+    }
+
+    div:hover {
+      /* 一个状态到另一个状态的过程称为过度 */
+      /* :hover会继承样式(毕竟表示的是元素状态) */
+      /* 有中间值的属性是可以设置过渡效果的 */
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      /* 独立对这个状态的过度进行控制 */
+      transition: .5s;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div></div>
+  </main>
+</body>
+
+</html>

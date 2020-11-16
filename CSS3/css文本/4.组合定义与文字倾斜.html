@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2 {
+      color: purple;
+    }
+
+    p {
+      font-size: 14px;
+      /* 相对于自己的字体大小 */
+      line-height: 1.5em;
+      font-style: italic;
+    }
+
+    article:first-child {
+      /* font-size: 40px;
+      line-height: 1.5em;
+      font-weight: bold;
+      font-style: italic;
+      font-family: serif; */
+
+      /* 组合定义时，字体大小和字体系列必须要有 */
+      font: bold italic 32px/1.5em "Fira Code";
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>houdunren.com</div>
+    <hr>
+    <h2>houdunren.com</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aspernatur, accusantium veniam eveniet animi
+      voluptatum earum officiis maiores voluptas cum eos asperiores nostrum optio pariatur! Ipsam voluptas perspiciatis
+      repudiandae consectetur?</p>
+  </article>
+</body>
+
+</html>

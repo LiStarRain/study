@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    main {
+      border: 1px solid red;
+      overflow: hidden;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    div {
+      width: 300px;
+      height: 200px;
+      border: 1px solid green;
+    }
+
+    div:nth-of-type(1) {
+      border: 1px solid black;
+      float: left;
+    }
+
+    div:nth-of-type(2) {
+      background-color: orange;
+      float: left;
+    }
+
+    span {
+      border: 1px solid yellow;
+      /* 形成了BFC，也就相当于把他变成了块级元素 */
+      width: 300px;
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <span>houdunren</span><span>hdcms</span>
+  </main>
+</body>
+
+</html>

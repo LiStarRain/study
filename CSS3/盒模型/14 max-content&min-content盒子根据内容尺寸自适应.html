@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    main {
+      /* width: 100vw; */
+      /* 按照最小内容宽度设置元素宽度 */
+      width: min-content;
+      /* 按照最大内容宽度设置元素宽度 */
+      width: max-content;
+
+      height: 100vh;
+      background-color: #9c88ff;
+    }
+
+    div {
+      background-color: #fbc531;
+      /* 根据内容自适应宽度 */
+      width: fit-content;
+
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div>这里长一点，哈哈哈哈哈哈houdunren.com</div>
+    <div>hdcms.com</div>
+  </main>
+</body>
+
+</html>

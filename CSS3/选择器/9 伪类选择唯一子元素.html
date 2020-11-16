@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 选择article子元素中是唯一一个子元素的元素 */
+    article :only-child {
+      color: rebeccapurple;
+    }
+
+    /* 选择article子元素中是唯一一个h1元素的子元素 */
+    article h1:only-of-type {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article>
+      <h1>后盾人</h1>
+      <aside>
+        <h2>papi</h2>
+      </aside>
+      <h2>hdcms.com</h2>
+    </article>
+  </main>
+</body>
+
+</html>

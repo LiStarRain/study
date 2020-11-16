@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: #2c3e50;
+      display: grid;
+    }
+
+    ul {
+      list-style-type: none;
+      place-self: center center;
+      width: 400px;
+      height: 100px;
+      display: flex;
+    }
+
+    li {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #e67e22;
+      animation-duration: 2s;
+      animation-delay: 2s;
+    }
+
+    li:first-child {
+      /* 起始默认使用初始状态，执行完后回到初始状态 */
+      animation-name: hd;
+    }
+
+    li:nth-child(2) {
+      animation-name: hd;
+      /* 起始默认使用第一帧状态，执行完后回到初始状态 */
+      animation-fill-mode: backwards;
+    }
+
+    li:nth-child(3) {
+      animation-name: hd;
+      /* 起始默认使用初始状态，执行完后保持最后一帧状态 */
+      animation-fill-mode: forwards;
+    }
+
+    li:nth-child(4) {
+      animation-name: hd;
+      /* 起始默认使用第一帧状态,执行完后保持最后一帧状态 */
+      animation-fill-mode: both;
+    }
+
+    @keyframes hd {
+      from {
+        transform: scale(0);
+      }
+
+      to {
+        transform: scale(1);
+        background-color: #2ecc71;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+
+</html>

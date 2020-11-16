@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    p {
+      border: 1px solid purple;
+      width: 400px;
+      padding: 30px;
+
+      position: relative;
+    }
+
+    p img {
+      width: 30px;
+      height: 30px;
+      /* 绝对定位 脱离文档流，空间位丢失，相对于最近的设置过positon属性不为static的父级元素定位
+        否则会一直向外寻找，直到找到根元素 */
+      position: absolute;
+      top: 0;
+      left: 50%;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    <img src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1741476901,4013212021&fm=111&gp=0.jpg"
+      alt="pic">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora tenetur ipsa voluptatum dolorem dolores cum, quidem
+    dicta ipsam quis voluptas eaque, accusantium ipsum dignissimos earum optio eveniet rerum in assumenda deserunt
+    nesciunt. Nesciunt recusandae facilis animi nobis impedit aliquid voluptates esse iste, maxime debitis at
+    consectetur laudantium eum! Id optio aliquam doloribus. Fugiat odio ullam vitae eius ex corrupti, nobis aliquid
+    perspiciatis beatae suscipit modi vel rem iste minus magni, ipsam consequuntur quae. Ad nihil odit omnis obcaecati
+    recusandae aut quas, totam error magnam iusto ratione minima repudiandae porro quae saepe cupiditate odio eaque cum
+    eveniet quia, unde perferendis ipsam!
+  </p>
+</body>
+
+</html>

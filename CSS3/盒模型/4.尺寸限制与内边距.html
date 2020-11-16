@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 100px;
+    }
+
+    article {
+      border: 2px solid red;
+      width: 300px;
+      /* 默认盒子为内容盒子，设置的宽度为内容盒子宽度，边框、内边距会撑大盒子 */
+      /* 把他变成边框盒子，设置的宽度为边框盒子(border+content)宽度，内边距会挤压内容区但不会撑大盒子 */
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid blue;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>houdunren.com</div>
+  </article>
+</body>
+
+</html>

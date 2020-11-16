@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 包含属性 */
+    h1[title] {
+      color: red;
+    }
+
+    /* 属性值为特定值 */
+    h1[class='title'] {
+      background-color: green;
+    }
+
+    /* 以特定值开头 */
+    h1[class^="l"] {
+      background-color: blue;
+    }
+
+    /* 以特定值结尾 */
+    h1[class$='k'] {
+      background-color: #123456;
+    }
+
+    /* 内容包含特定值，不是连续的也行 */
+    h1[class*="le"] {
+      font-size: 20px;
+    }
+
+    /* 内容包含特定值，且必须是连续的一个整体 */
+    h1[class~="le"] {
+      font-size: 30px;
+    }
+
+    /* 以houdunren开始或者以后盾人开始后面跟 - 连接的 */
+    h1[title|='houdunren'] {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <h1 title="title" class="title">标题</h1>
+    <h1 title="title" class="lsr">标题2</h1>
+    <h1 class="link">标题3</h1>
+  </article>
+</body>
+
+</html>
