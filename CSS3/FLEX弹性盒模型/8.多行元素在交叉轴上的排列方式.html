@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    article {
+      border: 1px solid purple;
+      width: 250px;
+      height: 550px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      /* 多行的时候控制交叉轴上的 元素 的对齐方式 */
+      align-content: center;
+      align-content: flex-end;
+      align-content: flex-start;
+      align-content: space-between;
+      align-content: space-around;
+      align-content: space-evenly;
+    }
+
+    article div {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </article>
+</body>
+
+</html>

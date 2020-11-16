@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    article {
+      border: 8px solid purple;
+      width: 400px;
+      height: 400px;
+      margin: 100px;
+      position: relative;
+      overflow-y: scroll;
+    }
+
+    section {
+      height: 3000px;
+      background-color: #ddd;
+    }
+
+    div {
+      background-color: #f00;
+      width: 200px;
+      height: 200px;
+      /* 参考离他最近的position为非static的父级元素 */
+      position: absolute;
+      /* 元素居中定位 */
+      bottom: 0;
+      left: 0;
+    }
+
+    p {
+      width: fit-content;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <section>
+      <div></div>
+    </section>
+  </article>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 10vh 1fr 10vh;
+    }
+
+    header {
+      background-color: #f39c12;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3em;
+      color: white;
+
+      animation-name: translate;
+      animation-duration: .5s;
+    }
+
+    main {
+      background-color: #2ecc71;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      justify-content: center;
+      align-items: center;
+      animation-name: rotate;
+      animation-duration: .5s;
+      animation-delay: 2s;
+      animation-fill-mode: backwards;
+    }
+
+    div {
+      border-radius: 10px;
+      width: 80vw;
+      padding: 10px;
+      color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+      animation-name: opacity;
+      animation-duration: .5s;
+      animation-delay: 3s;
+      animation-fill-mode: backwards;
+    }
+
+    @keyframes translate {
+      from {
+        transform: translateX(-100vh);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: scale(0) rotate(360deg);
+      }
+
+      to {
+        transform: scale(1) rotate(0);
+      }
+    }
+
+    @keyframes opacity {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    div:nth-child(1) {
+      transform: translateY(-50px);
+      background-color: #9b59b6;
+    }
+
+    div:nth-child(2) {
+      background-color: #1abc9c;
+      animation-delay: 3.5s;
+    }
+
+    footer {
+      background-color: #7f8c8d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.3em;
+      animation-name: rotate;
+      animation-duration: .5s;
+      animation-delay: 1s;
+      /* 动画完成后保留最后一帧的状态 */
+      /* transform: scale(0); */
+      /* animation-fill-mode: forwards; */
+      /* 当动画没动的时候，他的状态显示起始帧 */
+      animation-fill-mode: backwards;
+    }
+  </style>
+</head>
+
+<body>
+  <header>header</header>
+  <main>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, sit?</div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, quaerat nam. Tempora quisquam dolores
+      obcaecati dicta excepturi! Necessitatibus minima impedit perspiciatis laborum! Debitis vitae nobis similique,
+      doloremque laboriosam culpa. Recusandae.</div>
+  </main>
+  <footer>footer</footer>
+</body>
+
+</html>

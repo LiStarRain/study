@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    main {
+      width: 100vw;
+      height: 100vh;
+
+      perspective: 900px;
+      transform-style: preserve-3d;
+      transition: .5s;
+    }
+
+    main.login {
+      transform: perspective(900px) rotateY(0deg);
+    }
+
+    main.register {
+      transform: perspective(900px) rotateY(180deg);
+    }
+
+    div {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4em;
+      text-transform: uppercase;
+      color: #fff;
+
+      backface-visibility: hidden;
+    }
+
+    div:first-child {
+      background-color: #e67e22;
+    }
+
+    div:nth-child(2) {
+      background-color: #2ecc71;
+      transform: rotateY(180deg);
+    }
+
+    nav {
+      position: absolute;
+      width: 100%;
+      bottom: 50px;
+      text-align: center;
+    }
+
+    nav a {
+      padding: 10px 20px;
+      background-color: #34495e;
+      margin-right: 20px;
+      text-decoration: none;
+      color: white;
+      border-radius: 10px;
+    }
+
+    nav a:last-child {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div>login</div>
+    <div>register</div>
+  </main>
+  <nav>
+    <a href="javascript:;" onclick="change('login')">登录</a>
+    <a href="javascript:;" onclick="change('register')">注册</a>
+  </nav>
+
+  <script>
+    function change(t) {
+      switch (t) {
+        case "login":
+          $("main").removeClass().addClass("login");
+          break;
+        case "register":
+          $("main").removeClass().addClass("register");
+          break
+      }
+    }
+  </script>
+</body>
+
+</html>

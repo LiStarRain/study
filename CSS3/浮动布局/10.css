@@ -1,0 +1,14 @@
+p {
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow: hidden;
+}
+p span.shape {
+  width: 100px;
+  height: 100px;
+  float: left;
+  padding: 30px;
+  border: 1px;
+  border: 20px solid red;
+  shape-outside: margin-box;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2c3e50;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: #e67e22;
+      transition-duration: 1s;
+      /* 控制过渡时候的行为 */
+      /* 把整个过渡过程分为三份，平均分到所设置的时间，从触发开始就开始过渡 刚开始时是初始阶段后一个阶段 */
+      /* transition-timing-function: steps(3, start); */
+      /* 触发过后一个阶段开始过渡 刚开始时是初始阶段 */
+      transition-timing-function: steps(3, end);
+    }
+
+    div:hover {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background-color: #e74c3c;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div></div>
+  </main>
+</body>
+
+</html>

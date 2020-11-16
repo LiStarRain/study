@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    article {
+      border: 1px solid purple;
+      width: 400px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    article div {
+      background-color: blueviolet;
+      box-sizing: border-box;
+      padding: 5px;
+      background-clip: content-box;
+      flex: 1;
+      color: white;
+      font-size: 55px;
+    }
+
+    article :nth-child(1) {
+      /* 控制弹性元素的顺序，数字越大越靠后 */
+      /* 默认为0 */
+      order: 1;
+    }
+
+    article :nth-child(2) {
+      order: 0;
+    }
+
+    article :nth-child(3) {
+      order: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </article>
+</body>
+
+</html>

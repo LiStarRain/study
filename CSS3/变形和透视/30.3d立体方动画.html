@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vh;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+      border: 1px solid silver;
+      position: relative;
+      transform: perspective(900px);
+      transform-style: preserve-3d;
+      transform-origin: center center 100px;
+      transition: 2s;
+    }
+
+    body:hover main {
+      transform: perspective(900px) rotateY(180deg);
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #27ae60;
+      color: #fff;
+      font-size: 4em;
+
+      transform-origin: center center 100px;
+    }
+
+    div:nth-child(1) {
+      transform: rotateY(90deg);
+    }
+
+    div:nth-child(2) {
+      transform: rotateY(180deg);
+      background-color: #3498db;
+    }
+
+    div:nth-child(3) {
+      transform: rotateY(270deg);
+      background-color: #9b59b6;
+    }
+
+    div:nth-child(4) {
+      transform: rotateY(360deg);
+      background-color: #e67e22;
+    }
+
+    div:nth-child(5) {
+      transform-origin: center top;
+      transform: rotateX(90deg);
+    }
+
+    div:nth-child(6) {
+      transform-origin: center bottom;
+      transform: rotateX(-90deg);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </main>
+</body>
+
+</html>

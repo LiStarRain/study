@@ -1,0 +1,32 @@
+p {
+  border: 1px solid #ddd;
+  padding: 10px;
+  overflow: hidden;
+
+  span.shape {
+    width: 100px;
+    height: 100px;
+    float: left;
+    padding: 30px;
+    border: 1px;
+    // border: 20px solid red;
+    background-color: red;
+
+    // 让文字围绕边框
+    // shape-outside: border-box;
+    // shape-outside: padding-box;
+    // shape-outside: content-box;
+    shape-outside: margin-box;
+
+    // 浮动显示区域形状定制
+    clip-path: circle(50%);
+    // clip-path: ellipse(100% 50%);
+    // 多边形
+    // clip-path: polygon(50% 0, 100% 100%, 0 100%);
+
+    // 让文字围绕所定义的边界环绕
+    shape-outside: circle(50%);
+    // 让为文字围绕图片环绕,必须为png
+    // shape-outside: url();
+  }
+}

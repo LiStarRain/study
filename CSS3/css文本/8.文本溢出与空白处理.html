@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2 {
+      /* 空白处理 */
+      /* 保留原始格式 保留空白和换行符 */
+      white-space: pre;
+      /* 保留换行符，合并一个或多个空白为一个空白 */
+      white-space: pre-line;
+    }
+
+    div {
+      border: 1px solid red;
+      /* 处理文字溢出 */
+      width: 500px;
+      /* 溢出的部分让他隐藏 */
+      overflow: hidden;
+      /* 去除空白和换行符(不让他换行，让他溢出元素) */
+      white-space: nowrap;
+      /* 溢出的文字用省略号来代替 */
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <h2>hou dunr en.com</h2>
+    <div>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam, sed vero optio pariatur, aliquam laborum rerum
+      cumque consectetur iste earum, laboriosam itaque consequuntur quisquam ullam dolor odit asperiores nesciunt
+      voluptates?
+    </div>
+  </article>
+</body>
+
+</html>

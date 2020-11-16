@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    article {
+      height: 500px;
+      border: 10px dashed #000;
+      /* 定义多个背景图片 */
+      /* background-image: url("https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1741476901,4013212021&fm=111&gp=0.jpg"),
+        url("https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2370960176,2189932569&fm=111&gp=0.jpg");
+      background-repeat: no-repeat;
+      background-position: top left, top right; */
+
+      /* 组合语法 */
+      background: url("https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1741476901,4013212021&fm=111&gp=0.jpg") no-repeat top left,
+        url("https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2370960176,2189932569&fm=111&gp=0.jpg") no-repeat top right;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>houdunren.com</div>
+  </article>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #4b6584;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      color: white;
+      text-decoration: none;
+      width: 200px;
+      height: 40px;
+      background-color: #fc5c65;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      letter-spacing: .5em;
+      font-weight: bold;
+      text-transform: uppercase;
+      transform: skewX(25deg) rotate(-10deg);
+    }
+
+    .btn::before {
+      content: "";
+      width: 10px;
+      height: 100%;
+      background-color: #000;
+      position: absolute;
+      left: -10px;
+
+      /* 倾斜 */
+      transform: skewY(-45deg) translateY(5px);
+    }
+
+    .btn::after {
+      content: "";
+      width: 100%;
+      height: 10px;
+      background-color: #000;
+      position: absolute;
+      bottom: -10px;
+
+      transform: skewX(-45deg) translateX(-5px);
+    }
+  </style>
+</head>
+
+<body>
+  <a href="javascript:;" class="btn">houeunren</a>
+</body>
+
+</html>

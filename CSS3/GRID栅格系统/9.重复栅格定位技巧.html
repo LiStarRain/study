@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    article {
+      width: 300px;
+      height: 300px;
+      border: 1px solid silver;
+      /* 声明栅格系统的容器 */
+      display: grid;
+      /* 控制行高在50px-100px之间(最小50px,最大100px) 不让他随着容器无限扩张 */
+      /* 栅格线命名 */
+      grid-template-rows: repeat(3, [r-start] 1fr [r-end]);
+      grid-template-columns: repeat(3, [c-start] 1fr [c-end]);
+
+    }
+
+    div {
+      background-clip: content-box;
+      padding: 5px;
+      background-color: blueviolet;
+      color: white;
+      box-sizing: border-box;
+    }
+
+    div:first-child {
+      grid-row-start: r-start 1;
+      grid-column-start: c-start 2;
+      grid-row-end: r-end 1;
+      grid-column-end: c-end 2;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <div>1</div>
+  </article>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2c3e50;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: #9b59b6;
+      transition-duration: 1s;
+      transition-property: border-radius, background-color, width, height;
+      /* 延迟一定时间后在进行过渡 */
+      /* transition-delay: 1s; */
+      /* 先变border-radius width，再变background-color height */
+      transition-delay: 0ms, 2s;
+      /* 值不够从头循环 */
+      /* transition-delay: 0ms, 1s, 2s, 2s; */
+    }
+
+    div:hover {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div></div>
+  </main>
+</body>
+
+</html>

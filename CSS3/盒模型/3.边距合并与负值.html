@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2 {
+      border: 1px solid yellow;
+      margin-bottom: 30px;
+    }
+
+    article {
+      /* 垂直边距合并，外边距取外边距最大的那个元素的外边距 */
+      margin-top: 30px;
+      border: 1px solid red;
+      padding: 50px 0;
+    }
+
+    div {
+      border: 1px solid blue;
+      /* 编剧负值设置为px时，可以移动元素 */
+      /* margin-left: -50px; */
+      margin-right: -50px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>边距合并</h2>
+  <article>
+    <div>houdunren.com</div>
+  </article>
+</body>
+
+</html>

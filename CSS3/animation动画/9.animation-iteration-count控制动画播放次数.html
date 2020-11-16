@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: #2c3e50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #ecf0f1;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: #2ecc71;
+
+      animation-name: hd;
+      animation-duration: 5s;
+      /* 控制动画执行的次数 */
+      /* animation-iteration-count: 2; */
+      /* 无限 */
+      animation-iteration-count: infinite;
+    }
+
+    /* 定义帧动画 */
+    @keyframes hd {
+      25% {
+        transform: translateX(300px);
+      }
+
+      50% {
+        transform: translate(300px, 300px);
+      }
+
+      75% {
+        transform: translateY(300px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div></div>
+  </main>
+</body>
+
+</html>

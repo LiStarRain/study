@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      outline: none;
+      width: 100%;
+      border: none;
+    }
+
+    .field {
+      position: relative;
+    }
+
+    .field::after {
+      content: '';
+      background-image: linear-gradient(to right, white, red, blue, green, white);
+      height: 1px;
+      display: block;
+    }
+
+    .field:hover::before {
+      content: attr(data-help);
+      color: #666;
+      font-size: 12px;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: -10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="field" data-help="请输入100以内的字符">
+    <input type="text">
+  </div>
+</body>
+
+</html>

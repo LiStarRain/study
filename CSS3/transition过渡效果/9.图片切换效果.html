@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2c3e50;
+    }
+
+    main {
+      width: 400px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    main:hover section {
+      transform: translateX(-400px);
+    }
+
+    section {
+      width: 800px;
+      height: 200px;
+      transition: .3s;
+      transition-timing-function: step-end;
+      display: flex;
+    }
+
+    div {
+      width: 400px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section>
+      <div>
+        <img src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2680617861,2259765610&fm=111&gp=0.jpg"
+          alt="">
+      </div>
+      <div>
+        <img src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2852338631,75294945&fm=111&gp=0.jpg"
+          alt="">
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
