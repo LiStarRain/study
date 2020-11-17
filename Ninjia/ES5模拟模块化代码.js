@@ -28,4 +28,4 @@ const MouseCounterModule = (function () {
   };
 })(MouseCounterModule);
 MouseCounterModule.countMoves();
-// 缺点：两次闭包内的私有变量都是在自己的作用域中创建的，是完全私有的，通过模块扩展无法共享模块的素有变量
+// 缺点：两次闭包内的私有变量都是在自己的作用域中创建的，是完全私有的，通过模块扩展无法共享模块的私有变量
